@@ -1,5 +1,5 @@
 // Create variables
-const { update } = require("lodash");
+// const { update } = require("lodash");
 const nameInput = document.getElementById("my-name-input");
 const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
@@ -17,28 +17,26 @@ function formatMessage(message, myNameInput) {
   const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
 
   if (myNameInput === message.sender) {
-    return 
-    `
-    <div class="mine messages">
-      <div class="message">
-        ${message.text}
+    return `
+      <div class="mine messages">
+          <div class="message">
+              ${message.text}
+          </div>
+          <div class="sender-info">
+              ${formattedTime}
+          </div>
       </div>
-      <div class="sender-info">
-        ${formattedTime}
-      </div>
-    </div>
     `;
   } else {
-    return 
-    `
-    <div class="yours messages">
-      <div class="message">
-        ${message.text}
+    return `
+      <div class="yours messages">
+          <div class="message">
+              ${message.text}
+          </div>
+          <div class="sender-info">
+              ${message.sender} ${formattedTime}
+          </div>
       </div>
-      <div class="sender-info">
-        ${message.sender} ${formattedTime}
-      </div>
-    </div>
     `;
   }
 }
@@ -47,7 +45,7 @@ function formatMessage(message, myNameInput) {
 async function updateMessages() {
   // Fetch messages
   const messages = await fetchMessages();
-
+  
   // Loop over the messages. Inside the loop we will
     // Get each message
     // Format them
