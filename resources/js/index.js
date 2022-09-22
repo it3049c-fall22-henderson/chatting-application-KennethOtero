@@ -6,8 +6,8 @@ const sendButton = document.getElementById("send-button");
 const chatBox = document.getElementById("chat");
 
 // Get the messages
+const serverURL = 'https://it3049c-chat-application.herokuapp.com/messages';
 function fetchMessages() {
-  const serverURL = 'https://it3049c-chat-application.herokuapp.com/messages';
   return fetch(serverURL).then(response => response.json());
 }
 
@@ -44,7 +44,7 @@ function formatMessage(message, myNameInput) {
 }
 
 // Update the messages inside the chatbox
-async function updateMessagesInChatBox() {
+async function updateMessages() {
   // Fetch messages
   const messages = await fetchMessages();
 
@@ -61,14 +61,14 @@ async function updateMessagesInChatBox() {
 
 // Update messages every 10 seconds
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
-setInterval(updateMessagesInChatBox, MILLISECONDS_IN_TEN_SECONDS);
+setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 
 // Send messages
 function sendMessages(username, text) {
   const newMessage = {
     sender: username,
     text: text,
-    timestapm: new Date()
+    timestamp: new Date()
   }
 
   fetch(serverURL, {
