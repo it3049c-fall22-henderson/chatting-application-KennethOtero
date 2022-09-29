@@ -89,3 +89,15 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
 });
 
 // =========== Module 6 Changes =========== //
+// Get buttons
+const saveNameButton = document.getElementById('save-name');
+
+// Save name to local storage
+saveNameButton.addEventListener("click", function(e) {
+  localStorage.setItem('name', nameInput.value);
+});
+
+// Hide messages until name is stored in local storage
+if (localStorage.length >= 0) {
+  chatBox.classList.add('hide');
+}
