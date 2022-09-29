@@ -93,7 +93,6 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
 // Get document content
 const saveNameButton = document.getElementById('save-name');
 const messageInput = document.getElementById('messageInput');
-const darkModeButton = document.getElementById('dark-mode');
 
 // Save name to local storage. Any time a user decides to hit the save button after creating a name,
 // their name will be updated to whatever text is in the text box.
