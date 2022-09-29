@@ -59,7 +59,7 @@ async function updateMessages() {
 
 // Update messages every 10 seconds
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
-setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
+// setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 
 // Send messages
 function sendMessages(username, text) {
@@ -90,19 +90,21 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
 
 // =========== Module 6 Changes =========== //
 
-// Get buttons
+// Get document content
 const saveNameButton = document.getElementById('save-name');
 const messageInput = document.getElementById('messageInput');
+const darkModeButton = document.getElementById('dark-mode');
 
-// Save name to local storage
-saveNameButton.addEventListener("click", function(e) {
+// Save name to local storage. Any time a user decides to hit the save button after creating a name,
+// their name will be updated to whatever text is in the text box.
+saveNameButton.addEventListener("click", function() {
   localStorage.setItem('name', nameInput.value);
 });
 
-// Hide messages until name is stored in local storage
-// Runs an update on local storage every 100ms
+// Hide messages until name is stored in local storage.
+// Runs an update on local storage every 100ms.
 setInterval(function() {
-  if (localStorage.length <= 0) {
+  if (!localStorage.getItem('name')) {
     messageInput.classList.add('d-none');
   } else {
     messageInput.classList.remove('d-none');
