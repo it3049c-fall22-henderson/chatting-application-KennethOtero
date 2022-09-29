@@ -100,8 +100,11 @@ saveNameButton.addEventListener("click", function(e) {
 });
 
 // Hide messages until name is stored in local storage
-if (localStorage.length <= 0) {
-  messageInput.classList.add('d-none');
-} else {
-  messageInput.classList.remove('d-none');
-}
+// Runs an update on local storage every 100ms
+setInterval(function() {
+  if (localStorage.length <= 0) {
+    messageInput.classList.add('d-none');
+  } else {
+    messageInput.classList.remove('d-none');
+  }
+}, 100);
