@@ -87,3 +87,5 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
   sendMessages(sender, message);
   myMessage.value = "";
 });
+
+// =========== Module 6 Changes =========== //
